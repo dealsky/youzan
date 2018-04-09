@@ -2,19 +2,19 @@
   <div class="tab">
     <span class="line border-1px"></span>
     <div class="content">
-      <router-link tag="div" class="tab-item" to="/home" @click.native="selectItem(0)">
+      <router-link tag="div" class="tab-item" to="/home">
         <div class="icon">
           <i :class="priceCls"></i>
         </div>
         <span class="text">收银</span>
       </router-link>
-      <router-link tag="div" class="tab-item" to="/bill" @click.native="selectItem(1)">
+      <router-link tag="div" class="tab-item" to="/bill">
         <div class="icon">
           <i :class="orderCls"></i>
         </div>
         <span class="text">流水</span>
       </router-link>
-      <router-link tag="div" class="tab-item" to="/user" @click.native="selectItem(2)">
+      <router-link tag="div" class="tab-item" to="/user">
         <div class="icon">
           <i :class="peopleCls"></i>
         </div>
@@ -25,30 +25,45 @@
 </template>
 
 <script type="text/ecmascript-6">
-  const home = 0
-  const bill = 1
-  const user = 2
+  import {routePath} from 'common/js/util'
+  import {baseRouterObj} from 'common/js/config'
+
+  const homePath = 'home'
+  const billPath = 'bill'
+  const userPath = 'user'
 
   export default {
     data() {
       return {
-        index: 0
+        currentIndex: baseRouterObj[homePath]
       }
     },
     computed: {
       priceCls() {
-        return this.index === home ? 'icon-price_full' : 'icon-price'
+        const cls = 'icon-price'
+        return this.currentIndex === baseRouterObj.home ? `${cls}_full` : cls
       },
       orderCls() {
-        return this.index === bill ? 'icon-order_fill' : 'icon-order'
+        const cls = 'icon-order'
+        return this.currentIndex === baseRouterObj.bill ? `${cls}_fill` : cls
       },
       peopleCls() {
-        return this.index === user ? 'icon-people_fill' : 'icon-people'
+        const cls = 'icon-people'
+        return this.currentIndex === baseRouterObj.user ? `${cls}_fill` : cls
       }
     },
-    methods: {
-      selectItem(index) {
-        this.index = index
+    watch: {
+      $route(newRoute) {
+        if (routePath(newRoute.path).length) {
+          const firstPath = routePath(newRoute.path)[0]
+          if (firstPath === homePath) {
+            this.currentIndex = baseRouterObj[homePath]
+          } else if (firstPath === billPath) {
+            this.currentIndex = baseRouterObj[billPath]
+          } else if (firstPath === userPath) {
+            this.currentIndex = baseRouterObj[userPath]
+          }
+        }
       }
     }
   }
