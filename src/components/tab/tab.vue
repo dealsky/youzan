@@ -28,15 +28,14 @@
   import {routePath} from 'common/js/util'
   import {baseRouterObj} from 'common/js/config'
 
-  const homePath = 'home'
-  const billPath = 'bill'
-  const userPath = 'user'
-
   export default {
     data() {
       return {
-        currentIndex: baseRouterObj[homePath]
+        currentIndex: baseRouterObj.home
       }
+    },
+    created() {
+      this.setIndex(this.$route)
     },
     computed: {
       priceCls() {
@@ -52,18 +51,21 @@
         return this.currentIndex === baseRouterObj.user ? `${cls}_fill` : cls
       }
     },
-    watch: {
-      $route(newRoute) {
-        if (routePath(newRoute.path).length) {
-          const firstPath = routePath(newRoute.path)[0]
-          if (firstPath === homePath) {
-            this.currentIndex = baseRouterObj[homePath]
-          } else if (firstPath === billPath) {
-            this.currentIndex = baseRouterObj[billPath]
-          } else if (firstPath === userPath) {
-            this.currentIndex = baseRouterObj[userPath]
+    methods: {
+      setIndex(route) {
+        if (routePath(route.path).length) {
+          const firstPath = routePath(route.path)[0]
+          for (let k in baseRouterObj) {
+            if (firstPath === k) {
+              this.currentIndex = baseRouterObj[k]
+            }
           }
         }
+      }
+    },
+    watch: {
+      $route(newRoute) {
+        this.setIndex(newRoute)
       }
     }
   }
