@@ -18,7 +18,7 @@
     </div>
     <div class="content">
       <ul class="item-list">
-        <li class="item">
+        <li class="item" @click="selectItem(itemNames.commodity)">
           <i class="icon icon-good"></i>
           <span class="text">商品管理</span>
         </li>
@@ -39,7 +39,7 @@
           <span class="text">顾客</span>
         </li>
         <li class="item">
-          <i class="icon icon-store_value"></i>
+          <i class="icon icon-recharge"></i>
           <span class="text">会员充值</span>
         </li>
         <li class="item">
@@ -55,7 +55,7 @@
           <span class="text">活动</span>
         </li>
         <li class="item">
-          <i class="icon icon-recharge"></i>
+          <i class="icon icon-store_value"></i>
           <span class="text">储值</span>
         </li>
         <li class="item">
@@ -68,7 +68,20 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  import {itemNames} from 'common/js/config'
+
+  export default {
+    data() {
+      return {
+        itemNames: itemNames
+      }
+    },
+    methods: {
+      selectItem(itemName) {
+        this.$router.push(itemName)
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
