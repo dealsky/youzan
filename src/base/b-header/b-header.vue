@@ -37,18 +37,16 @@
   .header
     z-index: 500
     height: 48px
-    width: 100%
-    font-size: 0
     background: $color-background-top
     .icon
       display: inline-block
       padding: 9px
       margin-right: 12px
       line-height: 30px
-      font-size: 28px
+      font-size: 22px
     .title
       display: inline-block
       vertical-align: top
       line-height: 48px
-      font-size: $font-size-medium-x
+      font-size: $font-size-large
 </style>
