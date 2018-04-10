@@ -1,6 +1,6 @@
 <template>
   <div class="base">
-    <div class="header">
+    <div class="head">
       <ul class="item-list">
         <li class="item">
           <i class="icon icon-receipt"></i>
@@ -64,6 +64,7 @@
         </li>
       </ul>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -78,7 +79,7 @@
     },
     methods: {
       selectItem(itemName) {
-        this.$router.push(itemName)
+        this.$router.push(`/base/${itemName}`)
       }
     }
   }
@@ -88,7 +89,12 @@
   @import "~common/stylus/variable"
 
   .base
-    .header
+    position: fixed
+    top: 0
+    bottom: 48px
+    width: 100%
+    overflow: hidden
+    .head
       width: 100%
       height: 180px
       background: $color-background-top

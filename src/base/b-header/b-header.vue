@@ -1,9 +1,9 @@
 <template>
   <div class="header">
     <i class="icon icon-back" @click="backActions()"></i>
-    <i v-show="close" class="icon icon-close"></i>
+    <i v-if="close" class="icon icon-close"></i>
     <span class="title">{{ title }}</span>
-    <div v-show="rightClick" class="right"></div>
+    <div v-if="rightClick" class="right"></div>
   </div>
 </template>
 

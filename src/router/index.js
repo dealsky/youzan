@@ -15,7 +15,13 @@ export default new Router({
     },
     {
       path: '/base',
-      component: Base
+      component: Base,
+      children: [
+        {
+          path: 'commodity',
+          component: Commodity
+        }
+      ]
     },
     {
       path: '/bill',
@@ -24,10 +30,6 @@ export default new Router({
     {
       path: '/user',
       component: User
-    },
-    {
-      path: '/commodity',
-      component: Commodity
     }
   ]
 })
