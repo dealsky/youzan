@@ -2,7 +2,7 @@
   <div class="tab">
     <span class="line border-1px"></span>
     <div class="content">
-      <router-link tag="div" class="tab-item" to="/home">
+      <router-link tag="div" class="tab-item" to="/base">
         <div class="icon">
           <i :class="priceCls"></i>
         </div>
@@ -31,7 +31,7 @@
   export default {
     data() {
       return {
-        currentIndex: baseRouterObj.home
+        currentIndex: baseRouterObj.base
       }
     },
     created() {
@@ -40,7 +40,7 @@
     computed: {
       priceCls() {
         const cls = 'icon-price'
-        return this.currentIndex === baseRouterObj.home ? `${cls}_full` : cls
+        return this.currentIndex === baseRouterObj.base ? `${cls}_full` : cls
       },
       orderCls() {
         const cls = 'icon-order'

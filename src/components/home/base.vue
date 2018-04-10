@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="base">
     <div class="header">
       <ul class="item-list">
         <li class="item">
@@ -74,7 +74,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
 
-  .home
+  .base
     .header
       width: 100%
       height: 180px
