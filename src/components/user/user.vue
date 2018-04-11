@@ -13,14 +13,10 @@
           <i class="icon icon-arrow"></i>
         </div>
       </div>
-      <div class="switch-wrapper">
-        <div class="switch">
-          <span class="title">切换门店</span>
-          <div class="icon-wrapper">
-            <span class="name">{{ shopName }}</span>
-            <i class="icon icon-arrow"></i>
-          </div>
-        </div>
+      <div class="item">
+        <span class="title">切换门店</span>
+        <span class="name">{{ shopName }}</span>
+        <i class="icon-arrow"></i>
       </div>
     </div>
     <ul class="setup-first">
@@ -95,7 +91,7 @@
       return {
         shopName: '77uu7788',
         auth: false,
-        phone: '13586948026'
+        phone: '13586946026'
       }
     },
     computed: {
@@ -108,6 +104,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   @import "~common/stylus/variable"
+  @import "~common/stylus/mixin"
 
   .user
     position: fixed
@@ -117,8 +114,8 @@
     overflow: hidden
     background: $color-background-d
     .head
-      height: 48px
-      line-height: 48px
+      height: 46px
+      line-height: 46px
       text-align: center
       font-size: $font-size-large
       background: $color-background-top
@@ -155,7 +152,7 @@
               border: 1px solid $color-success
         .icon-wrapper
           position: absolute
-          right: 0
+          right: 10px
           font-size: 0
           vertical-align: center
           line-height: 75px
@@ -168,35 +165,29 @@
             transform: rotate(-180deg)
             font-size: 26px
             color: $color-border-l
-      .switch-wrapper
+      .item
+        position: relative
+        padding-left: 15px
         border-top: 1px solid $color-border-d
-        .switch
-          position: relative
-          padding: 0 15px
-          height: 48px
-          line-height: 48px
-          background: $color-background
-          .title
-            font-size: $font-size-medium-x
-            color: $color-text-ll
-          .icon-wrapper
-            position: absolute
-            display: inline-block
-            right: 0
-            font-size: 0
-            .name
-              display: inline-block
-              vertical-align: top
-              margin-right: 12px
-              line-height: 48px
-              font-size: $font-size-medium-x
-              color: $color-text-d
-            .icon-arrow
-              display: inline-block
-              line-height: 48px
-              transform: rotate(-180deg)
-              font-size: 26px
-              color: $color-border-l
+        height: 46px
+        line-height: 46px
+        background: $color-background
+        .title
+          font-size: $font-size-medium-x
+          color: $color-text-ll
+        .name
+          position: absolute
+          right: 48px
+          line-height: 46px
+          font-size: $font-size-medium-x
+          color: $color-text-d
+        .icon-arrow
+          position: absolute
+          right: 10px
+          transform: rotate(-180deg)
+          line-height: 46px
+          font-size: 26px
+          color: $color-border-l
     ul
       &.setup-first
         .icon
@@ -207,32 +198,35 @@
       margin-top: 10px
       .item
         display: flex
-        height: 48px
+        height: 46px
         background: $color-background
         .icon
           display: inline-block
           margin: 0 15px
-          line-height: 48px
+          line-height: 46px
           font-size: 24px
+        &:last-child
+          .content
+            border-bottom: none
         .content
           position: relative
           flex: 1
           border-bottom: 1px solid $color-background-d
           .title
             font-size: $font-size-medium-x
-            line-height: 48px
+            line-height: 46px
             color: $color-text-ll
           .name
             position: absolute
-            right: 44px
-            line-height: 48px
+            right: 52px
+            line-height: 46px
             font-size: $font-size-medium-x
             color: $color-text-d
           .icon-arrow
             position: absolute
             right: 10px
             transform: rotate(-180deg)
-            line-height: 48px
+            line-height: 46px
             font-size: 26px
             color: $color-border-l
 </style>
