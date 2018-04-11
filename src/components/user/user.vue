@@ -17,75 +17,26 @@
                 <i class="icon icon-arrow"></i>
               </div>
             </div>
-            <div class="item">
-              <span class="title">切换门店</span>
-              <span class="name">{{ shopName }}</span>
-              <i class="icon-arrow"></i>
-            </div>
+            <b-cell title="切换门店" :value="shopName" :is-link="linkFalse"></b-cell>
+            <b-cell title="切换门店" :value="shopName" :is-link="linkFalse"></b-cell>
           </div>
-          <ul class="setup-first">
-            <li class="item">
-              <i class="icon icon-people_fill"></i>
-              <div class="content">
-                <span class="title">账号设置</span>
-                <span class="name">{{ phone }}</span>
-                <i class="icon-arrow"></i>
-              </div>
-            </li>
-            <li class="item">
-              <i class="icon icon-people-r"></i>
-              <div class="content">
-                <span class="title">收银员管理</span>
-                <i class="icon-arrow"></i>
-              </div>
-            </li>
-            <li class="item">
-              <i class="icon icon-link"></i>
-              <div class="content">
-                <span class="title">设备管理</span>
-                <i class="icon-arrow"></i>
-              </div>
-            </li>
-            <li class="item">
-              <i class="icon icon-diamond"></i>
-              <div class="content">
-                <span class="title">高级服务</span>
-                <i class="icon-arrow"></i>
-              </div>
-            </li>
-          </ul>
-          <ul class="setup-second">
-            <li class="item">
-              <i class="icon icon-documents"></i>
-              <div class="content">
-                <span class="title">收款方式</span>
-                <i class="icon-arrow"></i>
-              </div>
-            </li>
-            <li class="item">
-              <i class="icon icon-setup"></i>
-              <div class="content">
-                <span class="title">收银设置</span>
-                <i class="icon-arrow"></i>
-              </div>
-            </li>
-            <li class="item">
-              <i class="icon icon-integral"></i>
-              <div class="content">
-                <span class="title">积分规则</span>
-                <i class="icon-arrow"></i>
-              </div>
-            </li>
-          </ul>
-          <ul class="setup-third">
-            <li class="item">
-              <i class="icon icon-favorite"></i>
-              <div class="content">
-                <span class="title">关于我们</span>
-                <i class="icon-arrow"></i>
-              </div>
-            </li>
-          </ul>
+
+          <div class="cell-group color-o">
+            <b-cell title="账号设置" icon="people_fill" :value="phone"></b-cell>
+            <b-cell title="收银员管理" icon="people-r"></b-cell>
+            <b-cell title="设备管理" icon="link"></b-cell>
+            <b-cell title="高级服务" icon="diamond"></b-cell>
+          </div>
+
+          <div class="cell-group color-b">
+            <b-cell title="收款方式" icon="documents"></b-cell>
+            <b-cell title="收银设置" icon="setup"></b-cell>
+            <b-cell title="积分规则" icon="integral"></b-cell>
+          </div>
+
+          <div class="cell-group color-b">
+            <b-cell title="关于我们" icon="favorite"></b-cell>
+          </div>
         </div>
       </b-scroll>
     </div>
@@ -94,13 +45,16 @@
 
 <script type="text/ecmascript-6">
   import BScroll from 'base/b-scroll/b-scroll'
+  import BCell from 'base/b-cell/b-cell'
 
   export default {
     data() {
       return {
         shopName: '77uu7788',
         auth: false,
-        phone: '13586948026'
+        phone: '13586948026',
+        linkTrue: true,
+        linkFalse: false
       }
     },
     computed: {
@@ -109,6 +63,7 @@
       }
     },
     components: {
+      BCell,
       BScroll
     }
   }
@@ -124,6 +79,7 @@
     text-align: center
     font-size: $font-size-large
     background: $color-background-top
+
   .user
     position: fixed
     top: 48px
@@ -181,68 +137,12 @@
               transform: rotate(-180deg)
               font-size: 26px
               color: $color-border-l
-        .item
-          position: relative
-          padding-left: 15px
-          border-top: 1px solid $color-border-d
-          height: 46px
-          line-height: 46px
-          background: $color-background
-          .title
-            font-size: $font-size-medium-x
-            color: $color-text-ll
-          .name
-            position: absolute
-            right: 48px
-            line-height: 46px
-            font-size: $font-size-medium-x
-            color: $color-text-d
-          .icon-arrow
-            position: absolute
-            right: 10px
-            transform: rotate(-180deg)
-            line-height: 46px
-            font-size: 26px
-            color: $color-border-l
-      ul
-        &.setup-first
-          .icon
-            color: $color-user-o
-        &.setup-second, &.setup-third
-          .icon
-            color: $color-user-blue
+      .cell-group
         margin-top: 10px
-        .item
-          display: flex
-          height: 46px
-          background: $color-background
-          .icon
-            display: inline-block
-            margin: 0 15px
-            line-height: 46px
-            font-size: 24px
-          &:last-child
-            .content
-              border-bottom: none
-          .content
-            position: relative
-            flex: 1
-            border-bottom: 1px solid $color-background-d
-            .title
-              font-size: $font-size-medium-x
-              line-height: 46px
-              color: $color-text-ll
-            .name
-              position: absolute
-              right: 52px
-              line-height: 46px
-              font-size: $font-size-medium-x
-              color: $color-text-d
-            .icon-arrow
-              position: absolute
-              right: 10px
-              transform: rotate(-180deg)
-              line-height: 46px
-              font-size: 26px
-              color: $color-border-l
+        &.color-o
+          .b-cell_icon
+            color: $color-user-o
+        &.color-b
+          .b-cell_icon
+            color: $color-user-blue
 </style>
