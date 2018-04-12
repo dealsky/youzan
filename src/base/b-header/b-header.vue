@@ -1,15 +1,19 @@
 <template>
   <div class="header">
-    <i class="icon icon-back" @click="backActions()"></i>
+    <i v-if="back" class="icon icon-back" @click="backActions()"></i>
     <i v-if="close" class="icon icon-close"></i>
     <span class="title">{{ title }}</span>
-    <div v-if="rightClick" class="right"></div>
+    <span v-if="right" class="right"></span>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   export default {
     props: {
+      back: {
+        type: Boolean,
+        default: true
+      },
       close: {
         type: Boolean,
         default: false
@@ -18,9 +22,9 @@
         type: String,
         default: ''
       },
-      rightClick: {
-        type: Boolean,
-        default: false
+      right: {
+        type: String,
+        default: ''
       }
     },
     methods: {
@@ -35,18 +39,19 @@
   @import "~common/stylus/variable"
 
   .header
-    z-index: 500
+    display: flex
+    align-items: center
     height: 48px
     background: $color-background-top
+    z-index: 500
     .icon
       display: inline-block
-      padding: 9px
-      margin-right: 12px
-      line-height: 30px
+      margin-right: 20px
+      padding: 10px
       font-size: 22px
     .title
-      display: inline-block
-      vertical-align: top
-      line-height: 48px
-      font-size: $font-size-large
+      flex: 1
+      font-size: $font-size-medium-x
+    .right
+      margin-right: 10px
 </style>
