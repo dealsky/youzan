@@ -50,9 +50,7 @@
       return {
         shopName: '77uu7788',
         auth: false,
-        phone: '13586948026',
-        linkTrue: true,
-        linkFalse: false
+        phone: '13586948026'
       }
     },
     computed: {

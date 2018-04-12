@@ -1,5 +1,5 @@
 <template>
-  <div class="b-cell" :class="{'border-bottom': border && !icon}" ref="cell">
+  <div @click="select" class="b-cell" :class="{'border-bottom': border && !icon}" ref="cell">
     <div class="cell-wrapper">
       <slot name="icon">
         <b-icon class="b-cell_icon" v-if="icon" :icon="icon"></b-icon>
@@ -26,6 +26,8 @@
 
 <script type="text/ecmascript-6">
   import BIcon from 'base/b-icon/b-icon'
+
+  const largeHeight = 92
 
   export default {
     props: {
@@ -68,9 +70,15 @@
       }, 20)
     },
     methods: {
+      select() {
+        if (!this.isLink) {
+          return
+        }
+        this.$router.push(this.link)
+      },
       _initCell() {
         if (this.size === 2) {
-          this.$refs.cell.style.height = '92px'
+          this.$refs.cell.style.height = `${largeHeight}px`
         }
       }
     },

@@ -31,8 +31,10 @@
     z-index: 100
     background: $color-background
     &.slide-enter-active, &.slide-leave-active
-      transition: all 0.3s
-    &.slide-enter, &.slide-leave-to
+      transition: all .3s
+    &.slide-enter
+      transform: translate3d(0, 30px, 0)
+    &.slide-leave-to
       transform: translate3d(0, 50px, 0)
       opacity: 0
 </style>
