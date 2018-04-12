@@ -6,12 +6,12 @@
     <div class="box-group">
       <div class="box">
         <i class="icon icon-phone"></i>
-        <input type="number" name="phoneNumber" placeholder="输入手机号码" v-model="phoneNumber">
+        <input type="tel" name="phoneNumber" placeholder="输入手机号码" v-model="phoneNumber" maxlength="13">
         <i v-show="phoneNumber" @click="clearPhoneNumber" class="icon-close-r"></i>
       </div>
       <div class="box">
         <i class="icon icon-lock"></i>
-        <input type="password" name="password" placeholder="输入密码" v-model="password">
+        <input type="password" name="password" placeholder="输入密码" v-model="password" maxlength="20">
         <i v-show="password" @click="clearPassword" class="icon-close-r"></i>
       </div>
       <span class="forget">忘记密码</span>
