@@ -1,5 +1,5 @@
 <template>
-  <transition name="slide">
+  <b-transition>
     <div class="coupon" ref="coupon">
       <b-header title="优惠券" right="添加优惠券"></b-header>
       <Tab v-model="tabIndex"
@@ -21,12 +21,13 @@
         </swiper-item>
       </swiper>
     </div>
-  </transition>
+  </b-transition>
 </template>
 
 <script>
   import BHeader from 'base/b-header/b-header'
   import BNoResult from 'base/b-no-result/b-no-result'
+  import BTransition from 'base/b-transition/b-transition'
   import {Tab, TabItem, Swiper, SwiperItem} from 'vux'
 
   const height = window.innerHeight - 44 - 48
@@ -54,7 +55,8 @@
       Tab,
       TabItem,
       Swiper,
-      SwiperItem
+      SwiperItem,
+      BTransition
     }
   }
 </script>
@@ -69,13 +71,6 @@
     width: 100%
     z-index: 100
     background: $color-background
-    &.slide-enter-active, &.slide-leave-active
-      transition: all .3s
-    &.slide-enter
-      transform: translate3d(0, 30px, 0)
-    &.slide-leave-to
-      transform: translate3d(0, 50px, 0)
-      opacity: 0
     .vux-tab
       background: #FAFAFA
       .vux-tab-item

@@ -1,14 +1,14 @@
 <template>
-  <transition name="slide">
+  <b-transition>
     <div class="commodity">
       <b-header :title="title"></b-header>
     </div>
-  </transition>
-
+  </b-transition>
 </template>
 
 <script type="text/ecmascript-6">
   import BHeader from 'base/b-header/b-header'
+  import BTransition from 'base/b-transition/b-transition'
 
   export default {
     data() {
@@ -16,7 +16,10 @@
         title: '商品管理'
       }
     },
-    components: {BHeader}
+    components: {
+      BHeader,
+      BTransition
+    }
   }
 </script>
 
