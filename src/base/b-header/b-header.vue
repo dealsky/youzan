@@ -3,7 +3,7 @@
     <i v-if="back" class="icon icon-back" @click="backActions()"></i>
     <i v-if="close" class="icon icon-close"></i>
     <span class="title">{{ title }}</span>
-    <span v-if="right" class="right"></span>
+    <span v-if="right" class="right">{{ right }}</span>
   </div>
 </template>
 

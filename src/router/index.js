@@ -5,6 +5,7 @@ import Bill from 'components/bill/bill'
 import User from 'components/user/user'
 import Commodity from 'components/commodity/commodity'
 import Login from 'components/login/login'
+import Coupon from 'components/coupon/coupon'
 
 Vue.use(Router)
 
@@ -21,6 +22,10 @@ export default new Router({
         {
           path: 'commodity',
           component: Commodity
+        },
+        {
+          path: 'coupon',
+          component: Coupon
         }
       ]
     },

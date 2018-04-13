@@ -19,7 +19,9 @@
     "better-scroll": "^1.8.4",
     "axios": "^0.18.0",
     "vue-lazyload": "^1.2.2",
-    "mint-ui": "^2.2.13"
+    "mint-ui": "^2.2.13",
+    "vux": "^2.8.1",
+    "vux-loader": "^1.2.7"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -69,7 +71,8 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^2.1.1"
+    "stylus-loader": "^2.1.1",
+    "less-loader": "^4.1.0"
   },
   "engines": {
     "node": ">= 6.0.0",

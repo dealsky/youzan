@@ -42,7 +42,7 @@
           <i class="icon icon-recharge"></i>
           <span class="text">会员充值</span>
         </li>
-        <li class="item">
+        <li class="item" @click="selectItem(itemNames.coupon)">
           <i class="icon icon-voucher"></i>
           <span class="text">优惠券</span>
         </li>

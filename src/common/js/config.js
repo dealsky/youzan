@@ -5,5 +5,6 @@ export const baseRouterObj = {
 }
 
 export const itemNames = {
-  commodity: 'commodity'
+  commodity: 'commodity',
+  coupon: 'coupon'
 }
