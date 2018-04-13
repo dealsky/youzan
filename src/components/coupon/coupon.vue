@@ -12,11 +12,12 @@
       </Tab>
       <swiper v-model="tabIndex"
               :show-dots="false"
-              :duration="200"
               :height="contentHeight"
               class="swiper">
-        <swiper-item v-for="(item, index) in itemList" class="item" :key="index">
-          {{ item }}
+        <swiper-item v-for="(item, index) in tabItemList" class="item" :key="index">
+          <div v-show="showNoResult(index)" class="no-result-wrapper">
+            <b-no-result title="暂无优惠券"></b-no-result>
+          </div>
         </swiper-item>
       </swiper>
     </div>
@@ -25,6 +26,7 @@
 
 <script>
   import BHeader from 'base/b-header/b-header'
+  import BNoResult from 'base/b-no-result/b-no-result'
   import {Tab, TabItem, Swiper, SwiperItem} from 'vux'
 
   const height = window.innerHeight - 44 - 48
@@ -39,8 +41,15 @@
       }
     },
     created() {
+      this.itemList = [[], [], [], []]
+    },
+    methods: {
+      showNoResult(index) {
+        return this.itemList[index].length === 0
+      }
     },
     components: {
+      BNoResult,
       BHeader,
       Tab,
       TabItem,
@@ -75,4 +84,9 @@
     .swiper
       .item
         color: #000
+    .no-result-wrapper
+      position: absolute
+      width: 100%
+      top: 50%
+      transform: translateY(-50%)
 </style>
