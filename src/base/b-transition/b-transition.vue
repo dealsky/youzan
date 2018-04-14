@@ -10,12 +10,9 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .slide-enter-active, .slide-leave-active
-    transition: all .3s
+    transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1), opacity .4s cubic-bezier(0.23, 1, 0.32, 1)
 
-  .slide-enter
+  .slide-enter, .slide-leave-active
     transform: translate3d(0, 30px, 0)
-
-  .slide-leave-to
-    transform: translate3d(0, 50px, 0)
     opacity: 0
 </style>

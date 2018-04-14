@@ -6,13 +6,10 @@ import router from './router'
 import fastclick from 'fastclick'
 // import VueLazyLoad from 'vue-lazyload'
 import 'common/stylus/index.styl'
-import Mint from 'mint-ui'
 
 Vue.config.productionTip = false
 
 fastclick.attach(document.body)
-
-Vue.use(Mint)
 
 /* eslint-disable no-new */
 new Vue({
